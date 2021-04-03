@@ -1,0 +1,53 @@
+﻿@page "/login"
+
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject IStringLocalizer<App> Localizer
+
+<center>
+    <div class="col-8 card">
+        <div class="col-12 row">
+            <EditForm Model="@user" OnValidSubmit="@ValidateUser">
+                <div>
+                    <h3 style="font-weight:bold; color:purple">@Localizer["Login"]</h3>
+                </div>
+                <div>
+                    <br />
+                </div>
+                <div class="col-12 row">
+                    <input class="form-control col-12" @bind="user.EmailAddress" placeholder="@Localizer["Email"]" type="email" />
+                </div>
+                <div>
+                    <br />
+                </div>
+                <div class="col-12 row">
+                    <input class="form-control col-12" @bind="user.Password" placeholder="@Localizer["Password"]" type="password" />
+                </div>
+                <br />
+                <div class="col-12 row">
+                    <span class="col-12"></span>
+                    <input type="submit" class="form-control col-12 btn btn-primary" value="@Localizer["Login"]" />
+                </div>
+            </EditForm>
+        </div>
+    </div>
+</center>
+@code {
+    private User user;
+
+    protected override Task OnInitializedAsync()
+    {
+        user = new User();
+        return base.OnInitializedAsync();
+    }
+
+    private async Task<bool> ValidateUser()
+    {
+        ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(user.EmailAddress);
+        NavigationManager.NavigateTo("/");
+
+        await sessionStorage.SetItemAsync("emailAddress", user.EmailAddress);
+        return await Task.FromResult(true);
+    }
+}

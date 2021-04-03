@@ -1,0 +1,17 @@
+﻿@page "/"
+@inject IJSRuntime JSRuntime;
+
+@inject IStringLocalizer<App> Localizer
+
+
+<h1>@Localizer["Hello Blazor"]</h1>
+
+
+<AuthorizeView>
+    <Authorized>
+        <p>@Localizer["Welcome"], @context.User.Identity.Name</p>
+    </Authorized>
+    <NotAuthorized>
+        <p>@Localizer["Welcome"]</p>
+    </NotAuthorized>
+</AuthorizeView>

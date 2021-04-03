@@ -1,0 +1,62 @@
+﻿@page "/lettercounter"
+
+@inject IStringLocalizer<App> Localizer
+@inject IJSRuntime jsRuntime
+
+<h1>@Localizer["Letter Counter"]</h1>
+<center>
+    <div class="col-8 card">
+        <div class="col-12 row">
+            <textarea @bind="desc" @bind:event="oninput" placeholder="@Localizer["Please Enter Text"]" id="txtAreaDesc" rows="15" ></textarea>
+        </div>
+        <div class="col-12 row">
+            <p>@(letterCount) byte</p>
+            <p>@Localizer["Including spaces"]</p><input type="checkbox" @bind="includedBlank" />
+        </div>
+        <div class="col-12 row">
+            <button class="btn btn-primary" @onclick="ClearText">@Localizer["Clear"]</button>
+            <button class="btn btn-primary" @onclick="CopyToClipboard">@Localizer["Copy"]</button>
+        </div>
+    </div>
+</center>
+@code {
+
+    private string desc { get; set; } = string.Empty;
+
+    private int letterCount => GetLetterCount();
+
+    private bool includedBlank { get; set; } = true;
+
+    private int GetLetterCount()
+    {
+
+        int blankCnt = includedBlank == true ? Regex.Matches(desc, @"[\r\n\t\f ]", RegexOptions.IgnorePatternWhitespace).Count : 0;
+
+        int koreanCnt = Regex.Matches(desc, @"[ㄱ-ㅎ가-힣]", RegexOptions.IgnorePatternWhitespace).Count;
+
+        int englishCnt = Regex.Matches(desc, @"[a-zA-Z]", RegexOptions.IgnorePatternWhitespace).Count;
+
+        int numberCnt = Regex.Matches(desc, @"[0-9]", RegexOptions.IgnorePatternWhitespace).Count;
+
+        return (koreanCnt * 2) + englishCnt + numberCnt + blankCnt;
+    }
+
+    private void ClearText()
+    {
+        desc = string.Empty;
+    }
+
+    private async Task CopyToClipboard()
+    {
+        try
+        {
+            await jsRuntime.InvokeVoidAsync("onFocus", "txtAreaDesc");
+            await jsRuntime.InvokeVoidAsync("navigator.clipboard.writeText", desc);
+        }
+        catch
+        {
+            Console.WriteLine("Cannot write text to clipboard");
+        }
+    }
+
+}
