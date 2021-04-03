@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Taemin.K\\source\\repos\\Nimeat\\Nimeat\\Nimeat.csproj": {}
+    "C:\\Users\\tmkim\\Source\\Repos\\nimeat2208\\Nimeat\\Nimeat\\Nimeat.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Taemin.K\\source\\repos\\Nimeat\\Nimeat\\Nimeat.csproj": {
+    "C:\\Users\\tmkim\\Source\\Repos\\nimeat2208\\Nimeat\\Nimeat\\Nimeat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Taemin.K\\source\\repos\\Nimeat\\Nimeat\\Nimeat.csproj",
+        "projectUniqueName": "C:\\Users\\tmkim\\Source\\Repos\\nimeat2208\\Nimeat\\Nimeat\\Nimeat.csproj",
         "projectName": "Nimeat",
-        "projectPath": "C:\\Users\\Taemin.K\\source\\repos\\Nimeat\\Nimeat\\Nimeat.csproj",
-        "packagesPath": "C:\\Users\\Taemin.K\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Taemin.K\\source\\repos\\Nimeat\\Nimeat\\obj\\",
+        "projectPath": "C:\\Users\\tmkim\\Source\\Repos\\nimeat2208\\Nimeat\\Nimeat\\Nimeat.csproj",
+        "packagesPath": "C:\\Users\\tmkim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tmkim\\Source\\Repos\\nimeat2208\\Nimeat\\Nimeat\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Taemin.K\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tmkim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,6 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "\\\\deploy-service1.giosis.net\\qoo10-nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
