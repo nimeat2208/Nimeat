@@ -117,17 +117,6 @@ using System.Text.RegularExpressions;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 30 "C:\Users\tmkim\Source\Repos\nimeat2208\Nimeat\Nimeat\Shared\MainLayout.razor"
-      
-    public void Logout() {
-        ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsLoggedOut();
-    }
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IStringLocalizer<App> Localizer { get; set; }
     }
 }

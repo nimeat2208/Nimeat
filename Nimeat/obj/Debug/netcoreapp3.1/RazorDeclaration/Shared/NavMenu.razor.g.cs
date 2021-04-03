@@ -118,20 +118,17 @@ using System.Text.RegularExpressions;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 51 "C:\Users\tmkim\Source\Repos\nimeat2208\Nimeat\Nimeat\Shared\NavMenu.razor"
-       
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
+#line 47 "C:\Users\tmkim\Source\Repos\nimeat2208\Nimeat\Nimeat\Shared\NavMenu.razor"
+      
+    public void Logout()
     {
-        collapseNavMenu = !collapseNavMenu;
+        ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsLoggedOut();
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IStringLocalizer<App> Localizer { get; set; }
     }
 }

@@ -119,14 +119,15 @@ using System.Text.RegularExpressions;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 10 "C:\Users\tmkim\Source\Repos\nimeat2208\Nimeat\Nimeat\Pages\Counter.razor"
-       
-    private int currentCount = 0;
+#line 12 "C:\Users\tmkim\Source\Repos\nimeat2208\Nimeat\Nimeat\Pages\Counter.razor"
+           
+        private int currentCount = 0;
 
-    private void IncrementCount()
-    {
-        currentCount++;
-    }
+        private void IncrementCount()
+        {
+            currentCount++;
+        }
+    
 
 #line default
 #line hidden

@@ -4,8 +4,8 @@
 
 @if (cultures != null)
 {
-    <form class="form-inline">
-        <select class="form-control mr-2" @onchange="RequestCultureChange">
+    <form>
+        <select @onchange="RequestCultureChange">
             @foreach (var culture in cultures)
             {
                 if (selectedCulture.Equals(@culture.Key))
